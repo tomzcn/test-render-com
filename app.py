@@ -148,8 +148,16 @@ routes = web.RouteTableDef()
 @routes.post('/server/post') 
 async def server_post(request):
     print('server')
-    data=await server_post_template(request,'http://localhost:8881/server/post','./server.db')
+    data=await server_post_template(request,'/server/post','./server.db')
     return web.json_response(data)
+
+@routes.get('/') 
+def root(request):
+    html="""
+<a href="/server/add-server-view">connect a server</a><br>
+<a href="/server/article">article</a>
+    """
+    return web.Response(body=html,content_type='text/html')
 
 @routes.get('/test') 
 def test(request):
@@ -167,7 +175,7 @@ def server_homepage(request):
 def server_add_server_view(request):
     html="""
 <form id="formElem">
-the server url: <input type="text" name="server_url" value="http://localhost:8881/s1/post"><br>
+the server url: <input type="text" name="server_url" value="https://decentral-http-entrance.onrender.com/server/post"><br>
 <input type="submit">
 </form>
 <a href="/server/homepage">homepage</a>
