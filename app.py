@@ -148,7 +148,7 @@ routes = web.RouteTableDef()
 @routes.post('/server/post') 
 async def server_post(request):
     print('server')
-    data=await server_post_template(request,'/server/post','./server.db')
+    data=await server_post_template(request,'http://localhost:8881/server/post','./server.db')
     return web.json_response(data)
 
 @routes.get('/') 
