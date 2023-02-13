@@ -77,7 +77,7 @@ def capacity_len(article):
     if len(article) > 1000000:
         raise()
 
-async def server_post_template(request,myurl,myfile):
+async def server_post_template(request,myfile):
     capacity(myfile)
     req_json=await request.json()
     data={'message':'ok'}
@@ -85,7 +85,7 @@ async def server_post_template(request,myurl,myfile):
         data={'message':'entrance:test.tomzcn.decentral-http-entrance'}
     if req_json['message']=='add_server':
         print('=============add_server========================')
-        print(myurl)
+        #print(myurl)
         server_url=req_json['server_url']
         exist_resp=await exist(server_url)
         print(exist_resp)
@@ -110,11 +110,11 @@ async def server_post_template(request,myurl,myfile):
                 await say(server_url,message,myfile)
             # Tell the new server to record this server
             print('3')
-            message={'message':'broadcast_add_server','server_url':myurl}
-            await say(server_url,message,myfile)
+            #message={'message':'broadcast_add_server','server_url':myurl}
+            #await say(server_url,message,myfile)
     if req_json['message']=='broadcast_add_server':
         print('=============broadcast_add_server==================')
-        print(myurl)
+        #print(myurl)
         server_url=req_json['server_url']
         with shelve.open(myfile) as db:
             db1=db['server_db'].copy()
@@ -148,7 +148,7 @@ routes = web.RouteTableDef()
 @routes.post('/server/post') 
 async def server_post(request):
     print('server')
-    data=await server_post_template(request,'http://localhost:8881/server/post','./server.db')
+    data=await server_post_template(request,'./server.db')
     return web.json_response(data)
 
 @routes.get('/') 
