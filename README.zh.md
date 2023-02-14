@@ -1,4 +1,6 @@
-这里是decentral-http（去中心http应用 https://github.com/tomzcn/decentral-http ）的子项目entrance（入口）。可以布置到能够作为http客户端的http服务器上（亚马逊云的lambda不行，render.com可以）。没有中心服务器，只要有至少一个服务器也能维持运行，服务器之间可以单向或双向同步。entrance子项目的目的是多个服务器共同维护一个文档。
+这里是decentral-http（去中心http应用 https://github.com/tomzcn/decentral-http ）的子项目entrance（入口）。可以布置到能够作为http客户端的http服务器上（亚马逊云的lambda不行，render.com可以）。
+
+没有中心服务器，只要有至少一个服务器也能维持运行，服务器之间可以单向或双向同步。entrance子项目的目的是多个服务器共同维护一个文档。
 
 目前在 render.com 上可以试验一下这个项目。render.com可以免费运行python代码。【危险】但是要注意render.com不提供免费磁盘，在很短的时间内就会清空磁盘，因此试验操作最好在几秒钟内完成，并且不能把render.com做为真实使用的服务器。 https://decentral-http-entrance.onrender.com/server/article 和 https://tomzheng-test-python.onrender.com/server/article 是目前部署的演示项目。
 
