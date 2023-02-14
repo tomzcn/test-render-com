@@ -15,6 +15,8 @@
 
 打开tomzheng服务器网址，刷新网页。这时可以看到在另一个服务器上看到的“d”。
 
+这样就完成了单向同步。下面是双向同步的另外步骤。
+
 在tomzheng服务器上点击“homepage”，点击“add server”，输入 https://decentral-http-entrance.onrender.com/server/post 并提交。这样tomzheng服务器的输入就能同步到decentral服务器了。
 
 点击”homepage“，点击“article”，在“d”后面输入“t”，点击“提交”。
