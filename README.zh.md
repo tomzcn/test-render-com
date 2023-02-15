@@ -2,7 +2,11 @@
 
 没有中心服务器，只要有至少一个服务器也能维持运行，服务器之间可以单向或双向同步。entrance子项目的目的是多个服务器共同维护一个文档。
 
-目前在 render.com 上可以试验一下这个项目。render.com可以免费运行python代码。【危险】但是要注意render.com不提供免费磁盘，在很短的时间内就会清空磁盘，因此试验操作最好在几秒钟内完成，并且不能把render.com做为真实使用的服务器。 https://decentral-http-entrance.onrender.com/server/article 和 https://tomzheng-test-python.onrender.com/server/article 是目前部署的演示项目。
+目前在 render.com 上可以试验一下这个项目。render.com可以免费运行python代码。 https://decentral-http-entrance.onrender.com/server/article 和 https://tomzheng-test-python.onrender.com/server/article 以及 https://decentral-http-entrance-1.onrender.com/server/article 是目前部署的演示项目。经试验三个服务器之间互联没有问题。
+
+【危险】要注意render.com不提供免费磁盘，在很短的时间内就会清空磁盘，因此试验操作最好在几秒钟内完成，并且不能把render.com做为真实使用的服务器。 
+
+【提醒】render.com 的免费服务很不稳定。如果提交后没有显示“ok”就要反复提交多次。同时部署速度也很慢。
 
 下面是演示网站的操作步骤：
 ------------------------
@@ -18,6 +22,8 @@
 在tomzheng服务器上点击“homepage”，点击“article”，在“d”后面输入“t”，点击“提交”。
 
 切换到decentral服务器刷新网页，可以看到“d”后面出现了“t”。
+
+然后还可以重复上面的步骤试验添加第三个服务器。 
 
 下面是在 render.com 上建立新服务器的操作步骤：
 --------------------------------------------
