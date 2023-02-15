@@ -9,17 +9,13 @@
 
 在浏览器上将两个网址同时打开，直到网页显示完毕。
 
-打开decentral服务器网址，点击“homepage”，点击“add server”，输入 https://tomzheng-test-python.onrender.com/server/post 并提交。这样decentral服务器的输入就可以同步到tomzheng服务器了。
+打开decentral服务器网址，点击“homepage”，点击“add server”，输入 https://tomzheng-test-python.onrender.com/server/post 和 https://decentral-http-entrance.onrender.com/server/post 并提交。这样decentral服务器的输入就可以同步到tomzheng服务器了。
 
 点击”homepage“，点击“article”，输入“d”，点击“提交”。
 
 打开tomzheng服务器网址，刷新网页。这时可以看到在另一个服务器上看到的“d”。
 
-这样就完成了单向同步。下面是双向同步的额外步骤。实现了双向同步才算得上是无中心服务器。单向同步也有自己的用处，等于是分发中心服务器的内容。
-
-在tomzheng服务器上点击“homepage”，点击“add server”，输入 https://decentral-http-entrance.onrender.com/server/post 并提交。这样tomzheng服务器的输入就能同步到decentral服务器了。
-
-点击”homepage“，点击“article”，在“d”后面输入“t”，点击“提交”。
+在tomzheng服务器上点击“homepage”，点击“article”，在“d”后面输入“t”，点击“提交”。
 
 切换到decentral服务器刷新网页，可以看到“d”后面出现了“t”。
 
