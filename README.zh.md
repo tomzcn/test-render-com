@@ -4,7 +4,7 @@
 
 目前在 render.com 上可以试验一下这个项目。render.com可以免费运行python代码。 https://decentral-http-entrance.onrender.com/server/article 和 https://tomzheng-test-python.onrender.com/server/article 以及 https://decentral-http-entrance-1.onrender.com/server/article 是目前部署的演示项目。经试验三个服务器之间互联没有问题。
 
-【危险】要注意render.com不提供免费磁盘，在很短的时间内就会清空磁盘，因此试验操作最好在几秒钟内完成，并且不能把render.com做为真实使用的服务器。 
+【危险】要注意render.com不提供免费磁盘，在很短的时间内就会清空磁盘，因此试验操作最好在几十秒钟内完成，并且不能把render.com做为真实使用的服务器。 
 
 【提醒】render.com 的免费服务很不稳定。如果提交后没有显示“ok”就要反复提交多次。同时部署速度也很慢。
 
