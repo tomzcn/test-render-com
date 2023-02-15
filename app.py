@@ -25,7 +25,7 @@ async def say(url,message,myfile):
     if await exist(url):
         async with aiohttp.ClientSession() as session:
             async with session.post(url,json=message) as resp:
-                print(resp.status)
+                #print(resp.status)
                 data= await resp.json()
         return data
     else:
@@ -52,7 +52,7 @@ async def exist(url):
     message={'message':'What channel?'}
     async with aiohttp.ClientSession() as session:
         async with session.post(url,json=message) as resp:
-            print(resp.status)
+            #print(resp.status)
             json_r=await resp.json()
             r=json_r['message']
             if resp.status == 200 and \
@@ -86,54 +86,54 @@ async def server_post_template(request,myfile):
     if req_json['message']=='What channel?':
         data={'message':'entrance:test.tomzcn.decentral-http-entrance'}
     if req_json['message']=='add_server':
-        print('=============add_server========================')
+        #print('=============add_server========================')
         server_url=req_json['server_url']
         exist_resp=await exist(server_url)
-        print(exist_resp)
+        #print(exist_resp)
         if not exist_resp:
             raise()
         with shelve.open(myfile) as db:
             db1=db['server_db'].copy()
         if server_url not in db1 and exist_resp:
             # Record the server locally
-            print('4')
+            #print('4')
             await file_add_server(myfile,server_url)
             # Tell all servers to add this server
-            print('2')
+            #print('2')
             for i in db1.keys():
                 message={'message':'broadcast_add_server','server_url':server_url}
-                print(i)
+                #print(i)
                 await say(i,message,myfile)
             # Tell all servers to the new server
-            print('1')
+            #print('1')
             for i in db1.keys():
                 message={'message':'broadcast_add_server','server_url':i}
                 await say(server_url,message,myfile)
             # Tell the new server to record this server
-            print('3')
+            #print('3')
             message={'message':'broadcast_add_server','server_url':myurl}
             await say(server_url,message,myfile)
     if req_json['message']=='broadcast_add_server':
-        print('=============broadcast_add_server==================')
+        #print('=============broadcast_add_server==================')
         server_url=req_json['server_url']
         with shelve.open(myfile) as db:
             db1=db['server_db'].copy()
-            print(myfile)
-            print(db1,'db1')
+            #print(myfile)
+            #print(db1,'db1')
         if server_url not in db1:
             # Record the server locally
-            print('4')
+            #print('4')
             await file_add_server(myfile,server_url)
     if req_json['message']=='read_article':
-        print('=============read article==================')
+        #print('=============read article==================')
         with shelve.open(myfile) as db:
             data={'message':db['article']}
     if req_json['message']=='broadcast_article':
-        print('=============broadcast article==================')
+        #print('=============broadcast article==================')
         with shelve.open(myfile) as db:
             db['article']=req_json['article']
     if req_json['message']=='article':
-        print('=============article==================')
+        #print('=============article==================')
         capacity_len(req_json['article'])
         with shelve.open(myfile) as db:
             db_server=db['server_db']
@@ -147,7 +147,7 @@ routes = web.RouteTableDef()
 
 @routes.post('/server/post') 
 async def server_post(request):
-    print('server')
+    #print('server')
     data=await server_post_template(request,'./server.db')
     return web.json_response(data)
 
@@ -257,7 +257,7 @@ article:<br>
 
 @routes.post('/s1/post') 
 async def s1_post(request):
-    print('s1')
+    #print('s1')
     data=await server_post_template(request,'http://localhost:8881/s1/post','./s1.db')
     return web.json_response(data)
 
@@ -311,7 +311,7 @@ article:<br>
 
 @routes.post('/s2/post') 
 async def s1_post(request):
-    print('s2')
+    #print('s2')
     data=await server_post_template(request,'http://localhost:8881/s2/post','./s2.db')
     return web.json_response(data)
     
