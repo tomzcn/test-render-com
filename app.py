@@ -87,7 +87,6 @@ async def server_post_template(request,myfile):
         data={'message':'entrance:test.tomzcn.decentral-http-entrance'}
     if req_json['message']=='add_server':
         print('=============add_server========================')
-        print(myurl)
         server_url=req_json['server_url']
         exist_resp=await exist(server_url)
         print(exist_resp)
@@ -116,7 +115,6 @@ async def server_post_template(request,myfile):
             await say(server_url,message,myfile)
     if req_json['message']=='broadcast_add_server':
         print('=============broadcast_add_server==================')
-        print(myurl)
         server_url=req_json['server_url']
         with shelve.open(myfile) as db:
             db1=db['server_db'].copy()
