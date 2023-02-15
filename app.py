@@ -80,12 +80,13 @@ def capacity_len(article):
 async def server_post_template(request,myfile):
     capacity(myfile)
     req_json=await request.json()
+    myurl=req_json['myurl']
     data={'message':'ok'}
     if req_json['message']=='What channel?':
         data={'message':'entrance:test.tomzcn.decentral-http-entrance'}
     if req_json['message']=='add_server':
         print('=============add_server========================')
-        #print(myurl)
+        print(myurl)
         server_url=req_json['server_url']
         exist_resp=await exist(server_url)
         print(exist_resp)
@@ -110,11 +111,11 @@ async def server_post_template(request,myfile):
                 await say(server_url,message,myfile)
             # Tell the new server to record this server
             print('3')
-            #message={'message':'broadcast_add_server','server_url':myurl}
-            #await say(server_url,message,myfile)
+            message={'message':'broadcast_add_server','server_url':myurl}
+            await say(server_url,message,myfile)
     if req_json['message']=='broadcast_add_server':
         print('=============broadcast_add_server==================')
-        #print(myurl)
+        print(myurl)
         server_url=req_json['server_url']
         with shelve.open(myfile) as db:
             db1=db['server_db'].copy()
@@ -176,6 +177,7 @@ def server_add_server_view(request):
     html="""
 <form id="formElem">
 the server url: <input type="text" name="server_url" value="https://decentral-http-entrance.onrender.com/server/post"><br>
+this server url: <input type="text" name="myurl" value="https://tomzheng-test-render.onrender.com/server/post"><br>
 <input type="submit">
 </form>
 <a href="/server/homepage">homepage</a>
@@ -187,7 +189,8 @@ the server url: <input type="text" name="server_url" value="https://decentral-ht
 formData=new FormData(formElem)
 let message = {
   message: 'add_server',
-  server_url: formData.get('server_url')
+  server_url: formData.get('server_url'),
+  myurl: formData.get('myurl'),
 };
 console.log(message);
 fetch_data={
