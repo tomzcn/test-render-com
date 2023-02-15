@@ -80,7 +80,8 @@ def capacity_len(article):
 async def server_post_template(request,myfile):
     capacity(myfile)
     req_json=await request.json()
-    myurl=req_json['myurl']
+    if 'myurl' in req_json:
+        myurl=req_json['myurl']
     data={'message':'ok'}
     if req_json['message']=='What channel?':
         data={'message':'entrance:test.tomzcn.decentral-http-entrance'}
