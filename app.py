@@ -9,6 +9,7 @@ import asyncio
 from aiohttp import web
 import shelve
 import time
+import aiohttp_cors
 
 def db_init(filename):
     with shelve.open(filename) as db:
@@ -316,6 +317,12 @@ async def s1_post(request):
     return web.json_response(data)
     
 app = web.Application()
+cors = aiohttp_cors.setup(app, defaults={
+        '*': aiohttp_cors.ResourceOptions(
+            allow_credentials=True,
+            allow_headers="*",
+            ),
+    })
 app.router.add_routes(routes)
 web.run_app(app,port='8881',host='0.0.0.0')
 
