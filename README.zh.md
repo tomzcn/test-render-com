@@ -2,6 +2,8 @@
 
 deceltral-http 没有中心服务器，只要有至少一个服务器也能维持运行，所有服务器之间同步，类似于一个无中心的虚拟广播网络，只要能连上一个服务器就等于加入了服务器群。 decentral-http 可以布置到能够作为http客户端的http服务器上（亚马逊云的lambda不行，render.com可以）。entrance子项目的目的是多个服务器共同维护一个文档。
 
+目前最好用的演示服务器： https://test-render-com.tomzcn.repl.co
+
 演示：目前在 render.com 上可以试验一下这个项目。render.com可以免费运行python代码。
 
 https://decentral-http-entrance.onrender.com/server/article 
